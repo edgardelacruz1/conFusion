@@ -6,27 +6,44 @@
     fxLayoutGap="10px" 
     fxLayoutGap.xs="0">
 
-  <div fxFlex="40">
-    <md-card>
-      <md-card-header>
-        <md-card-title>
-          <h3>{{dish.name | uppercase}}</h3>
-        </md-card-title>
-      </md-card-header>
-	  <img md-card-image src={{dish.image}} alt={{dish.name}}>
-	  <md-card-content>
-        <p>{{dish.description}}
-        </p>
-      </md-card-content>
-      <md-card-actions>
-        <button md-button>LIKE</button>
-        <button md-button>SHARE</button>
-      </md-card-actions>
-    </md-card>
+  <div fxFlex>
+    <md-grid-list cols="2" >
+      <md-grid-tile>
+		<md-card>
+		  <md-card-header>
+			<md-card-title>
+			  <h3>{{dish.name | uppercase}}</h3>
+			</md-card-title>
+		  </md-card-header>
+		  <img md-card-image src={{dish.image}} alt={{dish.name}}>
+		  <md-card-content>
+			<p>{{dish.description}}
+			</p>
+		  </md-card-content>
+		  <md-card-actions>
+			<button md-button>LIKE</button>
+			<button md-button>SHARE</button>
+		  </md-card-actions>
+		</md-card>		
+      </md-grid-tile>
+	  <md-grid-tile>
+	  <div fxFlex="100">
+        <md-list>
+		  <md-list-item *ngFor="let comment of dish.comments">
+			<p mdLine> {{comment.comment}} </p>
+			<p mdLine> {{comment.rating}} Stars </p>		
+			<p mdLine> -- {{comment.author}} {{comment.date | date}}</p>
+		  </md-list-item>
+		</md-list>
+	  </div>
+      </md-grid-tile>
+    </md-grid-list>
   </div>
+	
+  
 
-  <div fxFlex="40">
-    <p>Display the list of comments here</p>
-  </div>
+  
+    
+  
 
 </div>
