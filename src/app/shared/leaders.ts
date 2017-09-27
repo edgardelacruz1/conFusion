@@ -1,4 +1,4 @@
-import { Leader } from './leaders';
+import { Leader } from './leader';
 
 export const LEADERS: Leader[]= [
     {
