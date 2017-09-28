@@ -6,7 +6,7 @@
     fxLayoutGap="10px"
     fxLayoutGap.xs="0">
 
-  <div fxFlex>
+  <div fxFlex *ngIf="dish">
     <md-grid-list cols="2" >
       <md-grid-tile>
 		<md-card>
@@ -28,7 +28,7 @@
 		</md-card>
       </md-grid-tile>
 	  <md-grid-tile>
-	  <div fxFlex="100">
+	  <div fxFlex="100" *ngIf="dish">
         <md-list>
 		  <md-list-item *ngFor="let comment of dish.comments">
 			<p mdLine> {{comment.comment}} </p>
